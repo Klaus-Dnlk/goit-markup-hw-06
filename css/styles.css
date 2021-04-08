@@ -1003,30 +1003,49 @@ body {
 }
 
 .modal-checkbox {
-  display: inline-flex;
+  /* display: inline-flex; */
+  position: relative;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+
+  /* outline: 1px solid teal; */
+}
+
+.modal-link {
+  color: var(--accent-color);
 }
 .checkbox-input {
   opacity: 0;
 }
 
-.checkbox-label {
-  position: relative;
-
-}
-
-.checkbox-icon {
+.checkbox-icon.unchecked {
   position: absolute;
+  left: 2px;
   top: 3px;
-  left: -20px;
+  width: 16px;
+  height: 16px;
+  opacity: 1;
+
+  transition: opacity;
 }
 
-.checkbox-icon .checked {
+.checkbox-icon.checked {
+  position: absolute;
+  left: 2px;
+  top: 3px;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+
+  transition: opacity;
+}
+
+.checkbox-input:checked + .checkbox-label .unchecked {
   opacity: 0;
 }
-.checkbox-input:checked .checkbox-icon.checked {
+
+.checkbox-input:checked + .checkbox-label .checked {
   opacity: 1;
 }
 
